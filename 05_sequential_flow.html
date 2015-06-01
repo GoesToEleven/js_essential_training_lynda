@@ -1,0 +1,73 @@
+<html>
+<head>
+    <title>Simple Page</title>
+    <script>
+        // this is known as "inline" javascript
+        alert("one");
+    </script>
+    <script src="05_embedded.js"></script>
+    <!--
+
+    you don't need any of this:
+
+    type="application/ecmascript"
+    type="application/javascript"
+    type="text/ecmascript"
+    type="text/javascript"
+
+    -->
+</head>
+<body>
+<h1>Simple HTML Page</h1>
+<p>
+    This is a very simple HTML page.
+</p>
+
+<p>It's about as basic as they come. It has:<p>
+
+<ul>
+    <li>An H1 Tag</li>
+    <li>Two paragraphs</li>
+    <li>An unordered list</li>
+</ul>
+
+<script>
+    alert("three");
+
+    /*
+
+    Read about performance here: https://goo.gl/xixJxo
+
+     The Critical RENDERing Path:
+     1 - Get the HTML - PARSE HTML markup and build the DOM tree.
+     2 - Get the CSS - Process CSS markup and build the CSSOM tree (RECALCULATE STYLE).
+     3 - Combine HTML & CSS - Combine the DOM and CSSOM into a render tree (LAYOUT ).
+     4 - Figure out sizes - Run LAYOUT on the render tree to compute geometry of each node.
+     5 - Put it on the screen - PAINT the individual nodes to the screen.
+
+     JavaScript is PARSEr blocking
+         JavaScript blocks DOM construction
+     won’t execute until CSSOM created
+         CSS blocks JavaScript
+         CSS is RENDER blocking
+
+     To render:
+        need DOM
+        need CSSOM
+        need javascript
+
+     Best Practices:
+        put javascript at bottom of page
+            just before closing body tag </body>
+        put stylesheets at the top
+            in the head tag </head>
+            minimize number of stylesheets
+            minify stylesheets
+        make your JavaScript async when possible
+            makes it no longer parser blocking
+        eliminate unnecessary JavaScript from CRP
+     */
+
+</script>
+</body>
+</html>
