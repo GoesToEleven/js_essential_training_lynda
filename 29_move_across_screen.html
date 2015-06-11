@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <style>
+        body {
+            position: relative;
+        }
+
+        .ufo {
+            position: absolute;
+        }
+
+    </style>
+
+</head>
+<body>
+
+<script>
+    var currentPos = 0;
+    var intervalHandle;
+
+    function beginAnimate() {
+        var myBody = document.querySelector('body');
+//        var myDiv = document.createElement('div');
+//        myDiv.className = 'ufo';
+//        myDiv.id = '7';
+//        var randomNumber = Math.random()*100;
+//        myDiv.style.top = randomNumber+'%';
+//        myDiv.style.left = currentPos;
+//        myBody.appendChild(myDiv);
+        var myImg = document.createElement('img');
+        myImg.src = '29_ufo.png';
+        myImg.alt = '7';
+        myImg.id = '7';
+        myBody.appendChild(myImg);
+        // move across screen
+        intervalHandle = setInterval(moveUFO, 42);
+    }
+
+    function moveUFO() {
+//        currentPos += 2;
+        document.querySelector('#7').style.left = currentPos + 2 + 'px';
+        if (currentPos > 1280) {
+            // clear interval
+            clearInterval(intervalHandle);
+            // reset custom inline styles
+            document.querySelector('#7').style.position = "";
+            document.querySelector('#7').style.left = "";
+            document.querySelector('#7').style.top = "";
+        }
+    }
+
+    window.onload = function () {
+        beginAnimate();
+    };
+
+</script>
+</body>
+</html>

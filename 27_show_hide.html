@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 30em;
+        }
+
+    </style>
+</head>
+<body>
+<form action="#">
+    <p>Check to see: <input type="checkbox" name="message" id="message"></p>
+    <div id="accordian">
+        <h1>hello</h1>
+    </div>
+</form>
+<script>
+    // show and hide sections of a form
+    function preparePage() {
+        document.querySelector("#message").onclick = function () {
+            if (document.querySelector("#message").checked) {
+                // use CSS style to show it
+                document.querySelector("#accordian").style.display = "block";
+            } else {
+                // hide the div
+                document.querySelector("#accordian").style.display = "none";
+            }
+        };
+    }
+    // progressive enhancement
+    // only hides it if user has javascript enabled
+    document.getElementById("#accordian").style.display = "none";
+    window.onload = function () {
+        preparePage();
+    };
+
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body {
+            background-color: #995522;
+        }
+    </style>
+</head>
+<body>
+<form id="frmContact" name="frmContact" method="post" action="thanks.htm">
+    <fieldset>
+        <legend><strong>Personal Information</strong></legend>
+        <p>
+            <label for="email">Email</label>
+            <input name="email" type="text" class="text" id="email" tabindex="110">
+        </p>
+        <p><span id="errorMessage"></span></p>
+        <p>
+            <input type="submit" name="submit2" id="submitBtn" value="Send" tabindex="300">
+        </p>
+    </fieldset>
+</form>
+
+<!--
+<script src="26_form_checking.js" async></script>
+-->
+
+<script>
+
+    // handle the form submit event
+    function prepareEventHandlers() {
+        document.querySelector("#frmContact").onsubmit = function () {
+            // prevent a form from submitting if no email.
+            if (document.querySelector("#email").value == "") {
+                document.querySelector("#errorMessage").innerHTML = "Please provide at least an email address!";
+                // to STOP the form from submitting
+                return false;
+            } else {
+                // reset and allow the form to submit
+                document.querySelector("#errorMessage").innerHTML = "";
+                return true;
+            }
+        };
+    }
+
+    // when the document loads
+    window.onload = function () {
+        prepareEventHandlers();
+    };
+
+</script>
+
+</body>
+</html>

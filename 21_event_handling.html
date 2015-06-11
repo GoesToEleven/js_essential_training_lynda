@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <!--<script src="21_event_handling.js"></script>-->
+    <script src="21_event_handling.js" async></script>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<img src="images/HI.jpeg" alt="hawaii"/>
+<!--<script src="21_event_handling.js"></script>-->
+</body>
+</html>
+
+<!--
+experiment with JS in the three places above
+comment / uncomment the different JS locations
+
+JS is parser blocking
+JS blocks DOM construction
+(fyi: css blocks JS - the JS won't execute until CSSOM created)
+
+with JS at highest location
+JS executes, then DOM built
+JS not have reference to img
+the click event listener for img won't work
+
+with JS async
+JS waits until DOM and CSSOM are created to execute
+the click event listener will work
+
+with JS at lowest location
+when JS executes, the DOM is mostly created
+and the CSSOM is entirely created
+
+
+
+you could also do the below
+to ensure that your DOM and CSSOM are created before JS executes
+
+function executeEventHandlers() {
+        var myImg = document.querySelector('img');
+        function myFunction() {
+            alert('You clicked the image');
+            }
+        myImg.addEventListener('click', myFunction, false);
+}
+
+window.onload = function() {
+    executeEventHandlers();
+}
+
+
+-->

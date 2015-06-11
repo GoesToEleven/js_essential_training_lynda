@@ -10,9 +10,15 @@
  1. create the element
  2. add it to the document
 
+
+you want to use these today (5/2015):
+    querySelector
+    querySelectorAll
+and not the old ones like this:
+    getElementById
  */
 
-var myElement = document.getElementById('list');
+var myElement = document.querySelector('#list')
 var myNewElement = document.createElement('li');
 myElement.appendChild(myNewElement);
 
@@ -22,3 +28,5 @@ myNewElement.appendChild(myText);
 // another example
 
 var anotherNewElement = document.createElement('li');
+var secondItem = myElement.querySelectorAll('li')[0];
+myElement.insertBefore(anotherNewElement, secondItem);

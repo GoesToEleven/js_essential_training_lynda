@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+        
+        h1 {
+            font-size: 20em;
+        }
+        
+        .example {
+            color: #f00;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hello World</h1>
+
+<script>
+    // prevent a form from submitting
+    function preparePage() {
+        document.querySelector('h1').onclick = function() {
+            if ( document.querySelector('h1').className == "example") {
+                document.querySelector('h1').className = "";
+            } else {
+                document.querySelector('h1').className = "example";
+            }
+        };
+    }
+
+    window.onload =  function() {
+        preparePage();
+    };
+</script>
+</body>
+</html>
